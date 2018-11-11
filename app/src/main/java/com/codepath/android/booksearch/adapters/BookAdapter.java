@@ -3,7 +3,6 @@ package com.codepath.android.booksearch.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +18,7 @@ import com.codepath.android.booksearch.R;
 import com.codepath.android.booksearch.activities.BookDetailActivity;
 import com.codepath.android.booksearch.models.Book;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +56,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
                 // We can access the data within the views
                 Toast.makeText(context, tvTitle.getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, BookDetailActivity.class);
-                intent.putExtra("mBook", (Parcelable) mBook);
+                intent.putExtra("mBook", (Serializable) mBook);
                 context.startActivity(intent);
             }
         }
